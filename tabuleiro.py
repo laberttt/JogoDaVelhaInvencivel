@@ -28,5 +28,19 @@ class Tabuleiro:
             elif soma == 12:
                 return Tabuleiro.JOGADOR_X
             
+        #somando diagonal principal
+        soma_diagonal_principal = self.matriz[0][0] + self.matriz[1][1] + self.matriz[2][2]
+        if soma_diagonal_principal == 3:
+            return Tabuleiro.JOGADOR_0
+        elif soma_diagonal_principal == 12:
+            return Tabuleiro.JOGADOR_X
+        
+        #somando diagonal secundária
+        soma_diagonal_secundaria = self.matriz[0][2] + self.matriz[1][1] + self.matriz[2][0]
+        if soma_diagonal_secundaria == 3:
+            return Tabuleiro.JOGADOR_0
+        elif soma_diagonal_secundaria == 12:
+            return Tabuleiro.JOGADOR_X
+            
             
         return Tabuleiro.DESCONHECIDO
