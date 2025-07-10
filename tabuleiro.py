@@ -4,6 +4,7 @@ class Tabuleiro:
     DESCONHECIDO = 0
     JOGADOR_0 = 1
     JOGADOR_X = 4
+    OUTRO_TIPO = 2
 
     def __init__(self):
         self.matriz = [ [Tabuleiro.DESCONHECIDO, Tabuleiro.DESCONHECIDO, Tabuleiro.DESCONHECIDO], 
@@ -43,4 +44,11 @@ class Tabuleiro:
             return Tabuleiro.JOGADOR_X
             
             
-        return Tabuleiro.DESCONHECIDO
+        # Verifica se há empate
+        for i in range(3):
+            for j in range(3):
+                if self.matriz[i][j] == Tabuleiro.DESCONHECIDO:
+                    return Tabuleiro.DESCONHECIDO
+        
+        # Empate
+        return Tabuleiro.OUTRO_TIPO
